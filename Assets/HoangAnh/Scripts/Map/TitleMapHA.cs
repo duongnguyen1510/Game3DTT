@@ -1,33 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace HoangAnh
 {
-    public enum ETitleMap
+    public enum ETitleMapHA
     {
         TANK = 1,
         WALL = 0
     }
-    public class TitleMap : MonoBehaviour
+    public class TitleMapHA : MonoBehaviour
     {
-        [Space, Header("Data Title")] 
-        public ETitleMap TypeTitleMap;
+        [FormerlySerializedAs("TypeTitleMap")] [Space, Header("Data Title")] 
+        public ETitleMapHA typeTitleMapHa;
+        public int column;
+        public int row;
 
         [Space, Header("GameObjTitle")] 
         [SerializeField] private GameObject objTitleTank;
         [SerializeField] private GameObject objTitleWall;
 
-        public void SetupTitleMap(ETitleMap type)
+        public void SetupTitleMap(ETitleMapHA type, int column, int row)
         {
+            this.column = column;
+            this.row = row;
             ResetData();
-            TypeTitleMap = type;
+            typeTitleMapHa = type;
             switch (type)
             {
-                case ETitleMap.TANK:
+                case ETitleMapHA.TANK:
                     objTitleTank.SetActive(true);
                     break;
-                case ETitleMap.WALL:
+                case ETitleMapHA.WALL:
                     objTitleWall.SetActive(true);
                     break;
             }
