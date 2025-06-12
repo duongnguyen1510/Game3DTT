@@ -19,10 +19,12 @@ namespace Duong
         [SerializeField] private GameObject gameOjbectTank;
 
         public int rows;
-        public int clos;
+        public int cols;
 
-        public void SetupTitleMap(TitleMapType type)
+        public void SetupTitleMap(TitleMapType type, int cols, int rows)
         {
+            this.cols = cols;
+            this.rows = rows;
             ResetData();
             typeMap = type;
             switch (type)
@@ -40,12 +42,6 @@ namespace Duong
         {
             gameOjbectWall.SetActive(false);
             gameOjbectTank.SetActive(false);
-        }
-
-        public void SetPositionMap(int maprows, int mapclos)
-        {
-            mapclos = rows;
-            mapclos = clos;
         }
     }
 }
