@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Duong;
 using UnityEngine;
 
 namespace Duong
@@ -17,6 +18,8 @@ namespace Duong
         [Space, Header("GameOject")]
         [SerializeField] private GameObject gameOjbectWall;
         [SerializeField] private GameObject gameOjbectTank;
+        [SerializeField] private Outline outline;
+        private Tank currentTank = null;
 
         public int rows;
         public int cols;
@@ -40,8 +43,33 @@ namespace Duong
 
         public void ResetData()
         {
+            EnableOutLine(false);
             gameOjbectWall.SetActive(false);
             gameOjbectTank.SetActive(false);
+        }
+
+        public void EnableOutLine(bool enable)
+        {
+            outline.enabled = enable;
+        }
+
+        public bool HasTank()
+        {
+            return currentTank != null;
+        }
+        public void SetTank(Tank tank)
+        {
+            currentTank = tank;
+        }
+
+        public Tank GetTank()
+        {
+            return currentTank;
+        }
+
+        public void removeTank()
+        {
+            currentTank = null;
         }
     }
 }

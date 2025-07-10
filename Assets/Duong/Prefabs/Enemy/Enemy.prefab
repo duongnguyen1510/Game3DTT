@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4298208935284824373}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3484369185893347866}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -45,9 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4d194d9cbdc234787557841ca4806b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListPath: []
-  animator: {fileID: 864928486329148238}
-  speed: 2
+  _animator: {fileID: 864928486329148238}
+  _transPosTarget: {fileID: 864928486321884328}
+  _renderer: {fileID: 864928486324837774}
+  _colorHit: {r: 0.89433956, g: 0.24805266, b: 0.24805266, a: 1}
+  _colorDefault: {r: 1, g: 1, b: 1, a: 1}
+  isDie: 0
 --- !u!1 &6996240505432398163
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 6996240505432398163}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -88,6 +91,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8385630651309556894}
     m_Modifications:
+    - target: {fileID: 2198159340798541536, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198159340798541536, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fd6970c14af19b04a97cd79a2b401f4f, type: 2}
+    - target: {fileID: 2198159340798541536, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fd6970c14af19b04a97cd79a2b401f4f, type: 2}
     - target: {fileID: 2198159340802736160, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
       propertyPath: m_Controller
       value: 
@@ -95,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 2198159340812137462, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
       propertyPath: m_Name
       value: Zombie_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198159340812137462, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2198159340812627926, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -141,9 +160,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
+--- !u!4 &864928486321884328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2198159340812627910, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
+  m_PrefabInstance: {fileID: 1333551087352996718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &864928486321884344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198159340812627926, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
+  m_PrefabInstance: {fileID: 1333551087352996718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &864928486324837774 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2198159340798541536, guid: b2395a86ad6c4580835a9d4c5962ef46, type: 3}
   m_PrefabInstance: {fileID: 1333551087352996718}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &864928486329148238 stripped
